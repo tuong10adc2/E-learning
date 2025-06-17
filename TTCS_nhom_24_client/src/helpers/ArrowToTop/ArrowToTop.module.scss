@@ -1,0 +1,17 @@
+.arrow-to-top {
+  position: fixed;
+  height: 5rem;
+  width: 5rem;
+  right: 2.4rem;
+  bottom: 5.4rem;
+  font-size: 2.4rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgb(5 24 43 / 10%) 0rem 1rem 3rem 0rem;
+  z-index: 2;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out 0s;
+}

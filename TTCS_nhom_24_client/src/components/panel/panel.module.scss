@@ -1,0 +1,294 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint== xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.panel {
+  background-image: url(../../assets/img/backgroundMethods.png);
+  height: 65rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  margin-bottom: -0.1rem;
+  margin-top: -0.1rem;
+
+  @include responsive(xs) {
+    height: 50rem;
+  }
+
+  @include responsive(sm) {
+    height: 50rem;
+  }
+
+  @include responsive(md) {
+    height: 50rem;
+    background-position: 65%;
+  }
+
+  @include responsive(lg) {
+    height: 65rem;
+    background-position: 55%;
+  }
+}
+
+.panel__title {
+  padding-top: 3rem;
+  text-align: center;
+  font-family: var(--font-family);
+
+  & h2 {
+    font-size: 3rem;
+    color: #0a342f;
+    margin-bottom: 0;
+    text-transform: uppercase;
+
+    @include responsive(xs) {
+      font-size: 2.5rem;
+    }
+
+    @include responsive(sm) {
+      font-size: 2.5rem;
+    }
+
+    @include responsive(md) {
+      font-size: 2.4rem;
+    }
+
+    @include responsive(lg) {
+      font-size: 2.4rem;
+    }
+  }
+
+  & p {
+    color: var(--primaryColor);
+    margin-top: 0;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 2.8rem;
+
+    @include responsive(xs) {
+      font-size: 1.7rem;
+    }
+
+    @include responsive(sm) {
+      font-size: 1.7rem;
+    }
+
+    @include responsive(md) {
+      font-size: 2.4rem;
+    }
+
+    @include responsive(lg) {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.panel__content {
+  position: relative;
+}
+
+.panel__list {
+  width: 50%;
+  margin-left: auto;
+  right: -6rem;
+  top: 2rem;
+  position: absolute;
+  overflow: hidden;
+
+  @include responsive(xs) {
+    width: 65%;
+    right: 0rem;
+  }
+
+  @include responsive(sm) {
+    width: 65%;
+    right: -6rem;
+  }
+
+  @include responsive(md) {
+    width: 60%;
+    top: 1rem;
+  }
+
+  @include responsive(lg) {
+    width: 60%;
+  }
+}
+
+.panel__doub--item {
+  display: flex;
+  align-items: end;
+}
+
+.panel__item--wrapper1,
+.panel__item--wrapper2,
+.panel__item--wrapper3,
+.panel__item--wrapper4 {
+  text-align: center;
+  border-radius: 2rem;
+  right: 0;
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+
+  &:hover .panel__icon {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+
+  @include responsive(xs) {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  @include responsive(sm) {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  @include responsive(md) {
+    font-size: 1.4rem;
+  }
+}
+
+.panel__item--wrapper1 {
+  margin-right: 2rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include responsive(xs) {
+    height: 10rem;
+  }
+
+  @include responsive(sm) {
+    height: 10rem;
+  }
+
+  @include responsive(md) {
+    height: 13rem;
+  }
+}
+
+.panel__item--wrapper2 {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include responsive(xs) {
+    height: 12rem;
+  }
+
+  @include responsive(sm) {
+    height: 12rem;
+  }
+
+  @include responsive(md) {
+    height: 15rem;
+  }
+}
+
+.panel__item--wrapper3 {
+  width: 32rem;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+
+  @include responsive(xs) {
+    height: 8rem;
+    width: 20rem;
+    margin-left: 6rem;
+  }
+
+  @include responsive(sm) {
+    height: 8rem;
+    width: 24rem;
+    margin-left: 6rem;
+  }
+
+  @include responsive(md) {
+    height: 8rem;
+  }
+}
+
+.panel__item--wrapper4 {
+  width: 23rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include responsive(xs) {
+    height: 10rem;
+    width: 14rem;
+  }
+
+  @include responsive(sm) {
+    height: 10rem;
+    width: 16rem;
+  }
+
+  @include responsive(md) {
+    height: 10rem;
+  }
+}
+
+.panel__icon {
+  margin-bottom: 1rem;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+
+  @include responsive(xs) {
+    height: 4.8rem;
+    width: 3.2rem;
+  }
+
+  @include responsive(sm) {
+    height: 4.8rem;
+    width: 3.2rem;
+  }
+}
+
+.panel__col {
+  width: 100% !important;
+}

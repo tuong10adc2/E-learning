@@ -1,0 +1,318 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint== xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.banner {
+  height: 45rem;
+
+  @include responsive(xs) {
+    height: 24rem;
+  }
+
+  @include responsive(sm) {
+    height: 25rem;
+  }
+
+  @include responsive(md) {
+    height: 33.5rem;
+  }
+
+  @include responsive(lg) {
+    height: 27.5rem;
+  }
+}
+
+.banner__container {
+  padding: 2.5rem 2.4rem 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  display: block;
+  justify-content: space-between;
+
+  @include responsive(xs) {
+    padding: 1rem 1.6rem 0;
+  }
+
+  @include responsive(sm) {
+    padding: 2rem 2.4rem 0;
+  }
+
+  @include responsive(md) {
+    padding: 2.5rem 2.4rem 0;
+  }
+
+  @include responsive(lg) {
+    padding: 2.5rem 2.4rem 0;
+  }
+}
+
+.banner__wrapper {
+  position: relative;
+}
+
+.banner__title {
+  font-size: 4.5rem;
+  padding-top: 4.5rem;
+  font-weight: 700;
+  color: var(--primaryColor);
+  font-family: var(--font-family);
+
+  @include responsive(xs) {
+    padding-top: unset;
+    font-size: 1.8rem;
+  }
+
+  @include responsive(sm) {
+    padding-top: 2rem;
+    font-size: 2rem;
+  }
+
+  @include responsive(md) {
+    padding-top: unset;
+    font-size: 3rem;
+  }
+
+  @include responsive(lg) {
+    padding-top: unset;
+    font-size: 2.6rem;
+  }
+}
+
+.banner__subtitle {
+  margin-bottom: 1rem;
+  font-family: var(--font-family);
+  font-size: 3.5rem;
+
+  & b {
+    color: var(--secondaryColor);
+  }
+
+  & span {
+    color: #ff6557;
+    font-weight: 700;
+  }
+
+  @include responsive(xs) {
+    font-size: 1.4rem;
+  }
+
+  @include responsive(sm) {
+    font-size: 1.8rem;
+  }
+
+  @include responsive(md) {
+    font-size: 2.4rem;
+  }
+
+  @include responsive(lg) {
+    font-size: 2.2rem;
+  }
+}
+
+.banner__list {
+  font-family: var(--font-family);
+}
+
+.banner__item {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  & span {
+    margin-left: 2rem;
+  }
+
+  @include responsive(xs) {
+    font-size: 1.2rem;
+  }
+
+  @include responsive(sm) {
+    font-size: 1.2rem;
+  }
+
+  @include responsive(md) {
+    font-size: 1.2rem;
+  }
+
+  @include responsive(lg) {
+    font-size: 1.2rem;
+  }
+}
+
+.banner__icon {
+  color: var(--primaryColor);
+  width: 2rem;
+  height: 2rem;
+
+  @include responsive(xs) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @include responsive(sm) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @include responsive(md) {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  @include responsive(lg) {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}
+
+.banner__register {
+  margin-top: 2rem;
+}
+
+.banner__button {
+  background: linear-gradient(298.48deg, #009c93 13.52%, #1adac3 100.5%);
+  border: 0;
+  box-shadow: 0 1rem 1rem rgb(6 192 192 / 25%);
+  width: 32rem;
+  height: 7rem;
+  padding: 1rem;
+  border-radius: 5rem;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
+
+  @include responsive(xs) {
+    width: 16.5rem;
+    font-size: 1.2rem;
+    height: 3.2rem;
+  }
+
+  @include responsive(sm) {
+    width: 18rem;
+    height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  @include responsive(md) {
+    width: 20rem;
+    height: 5rem;
+    font-size: 1.6rem;
+  }
+
+  @include responsive(lg) {
+    width: 20rem;
+    height: 5rem;
+    font-size: 1.6rem;
+  }
+}
+
+.banner__button--icon {
+  font-size: 2.8rem;
+  margin-left: 0.8rem;
+  transform: rotate(35deg);
+
+  @include responsive(xs) {
+    font-size: 2rem;
+  }
+
+  @include responsive(sm) {
+    font-size: 2.2rem;
+  }
+
+  @include responsive(md) {
+    font-size: 2.4rem;
+  }
+
+  @include responsive(lg) {
+    font-size: 2.6rem;
+  }
+}
+
+.banner__right {
+  position: absolute;
+  left: calc(-20%);
+  width: 66rem;
+  height: 45rem;
+  top: -2rem;
+
+  @include responsive(xs) {
+    left: calc(-50%);
+    width: 21rem;
+    height: 15rem;
+    top: 1.8rem;
+  }
+
+  @include responsive(sm) {
+    left: calc(-50%);
+    width: 30rem;
+    height: 22rem;
+    top: 1.7rem;
+  }
+
+  @include responsive(md) {
+    left: calc(-70%);
+    width: 45rem;
+    height: 32rem;
+  }
+
+  @include responsive(lg) {
+    left: unset;
+    width: 40rem;
+    height: 27rem;
+  }
+}
+
+.banner__img {
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.banner__col {
+  width: 100% !important;
+}

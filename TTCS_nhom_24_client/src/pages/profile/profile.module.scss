@@ -1,0 +1,221 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint== xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.profile__container {
+  background-color: #f3f7f9;
+}
+
+.profile__wrapper {
+  padding: 5rem 2.4rem;
+  font-family: var(--font-family);
+
+  @include responsive(xs) {
+    padding: 5rem 1.6rem;
+  }
+}
+
+.profile__title {
+  color: #29313a;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.profile__box {
+  padding: 6rem 4rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  margin-bottom: 5rem;
+
+  @include responsive(xs) {
+    padding: 5rem 2rem;
+  }
+}
+
+.profile__avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.profile__icon {
+  width: 20rem;
+  height: 20rem;
+  color: var(--secondaryColor);
+
+  @include responsive(xs) {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  @include responsive(sm) {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  @include responsive(md) {
+    width: 18rem;
+    height: 18rem;
+  }
+}
+
+.profile__username {
+  text-align: center;
+  margin: 2rem;
+  font-weight: 500;
+  font-size: 1.8rem;
+  font-family: var(--font-family);
+
+  @include responsive(xs) {
+    margin: 1rem 0 3rem;
+  }
+}
+
+.profile__datepicker {
+  padding: 0 !important;
+  width: 100%;
+
+  & > div {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    padding: 1.6rem !important;
+
+    & > span {
+      margin: 0 0.8rem 0 0 !important;
+      cursor: pointer !important;
+
+      & > svg {
+        font-size: 1.8rem;
+        color: rgba(0, 0, 0, 0.88);
+      }
+    }
+  }
+}
+
+.profile__select {
+  width: 100%;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.6rem;
+
+  & > div {
+    height: 5.6rem !important;
+    align-items: center;
+    border-radius: 0.6rem !important;
+  }
+}
+
+.profile__group--btn {
+  display: flex;
+  justify-content: end;
+
+  @include responsive(xs) {
+    justify-content: center;
+  }
+}
+
+.profile__button {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  font-family: var(--font-family);
+  text-transform: unset;
+  font-weight: 500;
+  font-size: 1.8rem;
+  min-width: 6.4rem;
+  border-radius: 10rem;
+  border: 0.1rem solid rgb(213, 221, 231);
+  padding: 1.2rem 1.6rem;
+  margin: 2rem 0.8rem 0rem;
+  transition: ease 0.5s;
+
+  &.btn-change {
+    background-color: rgb(241, 244, 248);
+    color: var(--textColor);
+  }
+
+  &.btn-update {
+    background-color: var(--primaryColor);
+    color: #fff;
+  }
+
+  &.btn-modal {
+    background-color: var(--primaryColor);
+    color: #fff;
+    display: flex;
+    padding: 2.4rem 1.6rem;
+    margin: 2rem auto 2rem;
+
+    &:hover {
+      color: #fff;
+      border-color: var(--primaryColor);
+      outline: none;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.4rem);
+  }
+}
+
+.profile__formitem {
+  margin-bottom: 3rem !important;
+}
+
+// modal
+.profile__modal--title {
+  color: #29313a;
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  text-align: center;
+  margin: 0px;
+  padding: 3rem 2.4rem;
+}
+
+.profile__modal--form {
+  padding: 0rem 2.4rem !important;
+
+  @include responsive(xs) {
+    padding: 0rem 0rem !important;
+  }
+}

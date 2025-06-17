@@ -1,0 +1,149 @@
+// style chung
+@import "normalize.css";
+
+// responsive
+@mixin responsive($breakpoint) {
+  @if $breakpoint== xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+:root {
+  //color
+  --primaryColor: #009d9d;
+  --secondaryColor: #ffa800;
+  --hoverSecondaryColor: #ffb933;
+  --titleColor: #0a342f;
+  --textColor: #333333;
+
+  //font
+  --font-family: "SVN-Poppins";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--textColor);
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  overflow-y: overlay;
+
+  @include responsive(sm) {
+    font-size: 1.2rem;
+  }
+}
+
+//scroll bar
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 0.8rem;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 0.4rem;
+  background-color: #d0d0d0;
+
+  &:hover {
+    background-color: #a0a0a0;
+  }
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: #f9f9f9;
+}
+
+// reset the a, button va input
+a {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+
+//fonts embedded
+@font-face {
+  font-family: "SVN-Poppins";
+  src: url("../assets/font/SVN-Poppins.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SVN-Poppins";
+  src: url("../assets/font/SVN-PoppinsBold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SVN-Poppins";
+  src: url("../assets/font/SVN-PoppinsMedium.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "SVN-Poppins";
+  src: url("../assets/font/SVN-PoppinsSemiBold.woff2");
+  font-weight: 600;
+}
+
+//grid
+.wide {
+  // max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+
+  @include responsive(xl) {
+    max-width: 1170px;
+  }
+
+  @include responsive(lg) {
+    max-width: 992px;
+  }
+}

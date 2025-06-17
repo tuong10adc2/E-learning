@@ -1,0 +1,26 @@
+.privacy {
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  color: var(--textColor);
+  background-color: rgb(243, 247, 249);
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.privacy__container {
+  padding: 10rem 1.6rem;
+}
+
+.privacy__title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.privacy__subtitle {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.privacy__list {
+  padding-inline-start: 4.8rem;
+}

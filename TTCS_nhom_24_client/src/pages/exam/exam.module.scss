@@ -1,0 +1,280 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint== xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint== xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.exam__breadcrumb {
+  margin-bottom: 2rem;
+}
+
+.exam__breadcumb--link {
+  &:hover {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+    background-color: transparent !important;
+  }
+}
+
+.exam__breadcumb--link.active {
+  color: var(--primaryColor);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  opacity: 0.9;
+
+  &:hover {
+    color: var(--primaryColor);
+    opacity: 1;
+  }
+}
+
+.exam {
+  background-color: #f3f7f9;
+}
+
+.exam__container {
+  padding: 0 2.4rem;
+  font-family: var(--font-family);
+
+  @include responsive(xs) {
+    padding: 0 1.6rem;
+  }
+
+  @include responsive(sm) {
+    padding: 0 2.4rem;
+  }
+
+  @include responsive(md) {
+    padding: 0 2.4rem;
+  }
+
+  @include responsive(lg) {
+    padding: 0 2.4rem;
+  }
+}
+
+.exam__wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  & nav {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--textColor);
+  }
+}
+
+.exam__title {
+  text-align: center;
+  margin: 2.4rem 0;
+  @include responsive(xs) {
+    font-size: 2.8rem;
+  }
+
+  @include responsive(sm) {
+    font-size: 2.8rem;
+  }
+
+  @include responsive(md) {
+    font-size: 2.8rem;
+  }
+
+  @include responsive(lg) {
+    font-size: 2.8rem;
+  }
+}
+
+.exam__view {
+}
+
+.exam__appear {
+  &.hide {
+    display: none;
+  }
+}
+
+.exam__panel {
+  width: 100%;
+}
+
+.exam__panel--item {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.exam__panel--title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.6rem;
+  padding-top: 0.8rem;
+  cursor: pointer;
+}
+
+.exam__panel--title .panel__icon {
+  font-size: 1.6rem;
+}
+
+.exam__panel--title .panel__text {
+  font-size: 1.8rem;
+  font-family: var(--font-family);
+  font-weight: 600;
+  margin-left: 0.8rem;
+}
+
+.exam__panel--content {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 0.15rem solid rgb(243, 247, 249);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.4s ease-in-out;
+
+  & > span {
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: var(--font-family);
+    color: #000;
+    margin-bottom: 2.4rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 10px rgb(192 210 235 / 50%);
+  }
+}
+
+.panel--action-item {
+  display: flex;
+  & > div {
+    display: flex;
+    align-items: center;
+    & > span {
+      padding: 0 1rem;
+      margin-top: 0.4rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-family: var(--font-family);
+      color: black;
+    }
+  }
+
+  @include responsive(sm) {
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+
+  @include responsive(xs) {
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+
+  @include responsive(md) {
+    & > div > span {
+      padding: 0 0.8rem;
+      margin-top: 0.2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.exam__panel--score {
+  margin-left: 0.6rem;
+  padding: 0.6rem 0;
+  color: #76b257;
+  border: 0.15rem solid #76b257;
+  border-radius: 1rem;
+  & > span {
+    font-size: 1.2rem !important;
+    color: #76b257 !important;
+    font-weight: 700 !important;
+    margin-top: unset !important;
+  }
+  @include responsive(xs) {
+    margin-left: unset;
+  }
+
+  @include responsive(sm) {
+    margin-left: unset;
+  }
+
+  @include responsive(md) {
+    margin-left: unset;
+  }
+}
+
+.exam__panel--action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include responsive(sm) {
+    align-items: initial;
+    flex-direction: column;
+  }
+
+  @include responsive(xs) {
+    align-items: initial;
+    flex-direction: column;
+  }
+}
+
+.exam__panel--btn {
+  font-size: 1.3rem;
+  font-family: var(--font-family);
+  font-weight: 600;
+  box-shadow: 0 0.4rem 1rem rgb(192 210 235 / 75%);
+  color: #fff;
+  background-color: var(--primaryColor);
+  padding: 0.6rem 0.8rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  &.review {
+    background-color: #ffba34;
+  }
+  @include responsive(sm) {
+    margin-left: auto;
+  }
+
+  @include responsive(xs) {
+    margin-left: auto;
+  }
+}
+
+.exam__panel--icon {
+  font-size: 2rem;
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/utils/mongodb.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1749494262972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1749494638015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,27 +3,33 @@\n import logger from \"./logger\";\r\n \r\n dotenv.config();\r\n \r\n-const { MONGO_URI, DB_NAME = \"my_db\" } = process.env;\r\n-const DB_URL = MONGO_URI;\r\n+const { MONGO_URI } = process.env;\r\n \r\n-const connectDatabase = (callback?: () => void) => {\r\n-  mongoose\r\n-    .connect(DB_URL, {\r\n-      dbName: DB_NAME,\r\n-    })\r\n-    .then(() => {\r\n-      logger.info(\"MongoDB connected:\", {\r\n-        url: DB_URL,\r\n-        dbName: DB_NAME,\r\n-      });\r\n-      if (callback) callback();\r\n-    })\r\n-    .catch((err) => logger.error(\"MongoDB initial connection error: \", err));\r\n+const connectDatabase = async (callback?: () => void) => {\r\n+  try {\r\n+    if (!MONGO_URI) {\r\n+      throw new Error(\"MONGO_URI is not defined in .env file!\");\r\n+    }\r\n+    await mongoose.connect(MONGO_URI, {\r\n+      useNewUrlParser: true,\r\n+      useUnifiedTopology: true,\r\n+      // dbName: \"my_db\" // Nếu connection string đã có /my_db thì không cần dòng này!\r\n+    } as any);\r\n \r\n+    logger.info(\"MongoDB connected\", {\r\n+      url: MONGO_URI,\r\n+    });\r\n+\r\n+    if (callback) callback();\r\n+  } catch (err) {\r\n+    logger.error(\"MongoDB initial connection error: \", err);\r\n+    process.exit(1); // Thoát chương trình nếu connect lỗi\r\n+  }\r\n+\r\n   mongoose.connection.on(\"error\", (err) => {\r\n-    console.log(\"MongoDB error: \", err);\r\n+    logger.error(\"MongoDB runtime error: \", err);\r\n   });\r\n };\r\n \r\n export default connectDatabase;\r\n"
+                },
+                {
+                    "date": 1749494665760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     }\r\n     await mongoose.connect(MONGO_URI, {\r\n       useNewUrlParser: true,\r\n       useUnifiedTopology: true,\r\n-      // dbName: \"my_db\" // Nếu connection string đã có /my_db thì không cần dòng này!\r\n+      // dbName: \"my_db\" // Nếu connection string đã có /my_db thì k cần d này!\r\n     } as any);\r\n \r\n     logger.info(\"MongoDB connected\", {\r\n       url: MONGO_URI,\r\n"
+                }
+            ],
+            "date": 1749494262972,
+            "name": "Commit-0",
+            "content": "import mongoose from \"mongoose\";\r\nimport dotenv from \"./dotenv\";\r\nimport logger from \"./logger\";\r\n\r\ndotenv.config();\r\n\r\nconst { MONGO_URI, DB_NAME = \"my_db\" } = process.env;\r\nconst DB_URL = MONGO_URI;\r\n\r\nconst connectDatabase = (callback?: () => void) => {\r\n  mongoose\r\n    .connect(DB_URL, {\r\n      dbName: DB_NAME,\r\n    })\r\n    .then(() => {\r\n      logger.info(\"MongoDB connected:\", {\r\n        url: DB_URL,\r\n        dbName: DB_NAME,\r\n      });\r\n      if (callback) callback();\r\n    })\r\n    .catch((err) => logger.error(\"MongoDB initial connection error: \", err));\r\n\r\n  mongoose.connection.on(\"error\", (err) => {\r\n    console.log(\"MongoDB error: \", err);\r\n  });\r\n};\r\n\r\nexport default connectDatabase;\r\n"
+        }
+    ]
+}
